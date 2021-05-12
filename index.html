@@ -7,57 +7,15 @@
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Open+Sans:wght@400;600&display=swap"
       rel="stylesheet"
     />
-    <script>
-      /*Funcion solo para escribir letras*/
-      function sololetras(e) {
-        key = e.keyCode || e.wich;
-        teclado = String.fromCharCode(key).toLowerCase();
-        letras =
-          " ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyzáéíóúÁÉÍÓÚ";
-        especiales = "8-37-38-46-164-";
-        teclado_especial = false;
-        for (var i in especiales) {
-          if (key == especiales[i]) {
-            teclado_especial = true;
-            break;
-          }
-        }
-        if (letras.indexOf(teclado) == -1 && !teclado_especial) {
-          return false;
-        }
-      }
-	  
-	  function Enable()
-{
-document.registro.Educacion_preescolar.disabled=false;
-document.registro.Educacion_primaria.disabled=false;
-document.registro.Educacion_secundaria.disabled=false;
-document.registro.Educacion_media_superior.disabled=false;
-document.registro.Educacion_superior.disabled=false;
-}
 
-function Disable()
-{
-document.registro.Educacion_preescolar.disabled=true;
-document.registro.Educacion_primaria.disabled=true;
-document.registro.Educacion_secundaria.disabled=true;
-document.registro.Educacion_media_superior.disabled=true;
-document.registro.Educacion_superior.disabled=true;
-
-document.registro.Educacion_preescolar.checked=false;
-document.registro.Educacion_primaria.checked=false;
-document.registro.Educacion_secundaria.checked=false;
-document.registro.Educacion_media_superior.checked=false;
-document.registro.Educacion_superior.checked=false;
-}
-	  
-	  
-    </script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="funciones.js"></script>
     <title>Formulario de registro</title>
   </head>
-  <body style="font-family: 'IBM Plex Sans', sans-serif;
-  font-family: 'Open Sans', sans-serif;">
+  <body>
+    <div class="wrapper">
     <h1><strong>Formulario de registro</strong></h1>
+    <br>
     <strong><!-- Programa hecho por Cadena Chacha Omar Ramiro
    del 4AMPr -->
     </strong>
@@ -71,7 +29,7 @@ document.registro.Educacion_superior.checked=false;
         </strong><br /><br />
         <input
           type="name"
-          placeholder="Escriba su nombre"
+          placeholder="Ejemplo: Ana"
           onkeypress="return sololetras(event)"
           id="nombre"
           name="Nombre"
@@ -85,7 +43,7 @@ document.registro.Educacion_superior.checked=false;
         </strong><br /><br />
         <input
           type="name"
-          placeholder="Escriba su apellido paterno"
+          placeholder="Ejemplo: Hernández"
           onkeypress="return sololetras(event)"
           id="apellido_paterno"
           name="Apellido paterno"
@@ -97,7 +55,7 @@ document.registro.Educacion_superior.checked=false;
         <br /><br />
         <input
           type="name"
-          placeholder="Escriba su apellido materno"
+          placeholder="Ejemplo: López"
           onkeypress="return sololetras(event)"
           id="apellido_materno"
           name="Apellido materno"
@@ -108,7 +66,7 @@ document.registro.Educacion_superior.checked=false;
         <strong><br />
         <label for="edad">4. ¿Cuál es su edad?</label>
         </strong><br /><br />
-        <input type="number" placeholder="Edad" min="1" max="99" name="4. Edad" id="edad" required />
+        <input type="number" min="1" max="99" name="4. Edad" id="edad" required />
         <br /><br />
 		
 		
@@ -151,7 +109,7 @@ document.registro.Educacion_superior.checked=false;
             value="Mujer"
             id="genero_1"
             required
-          /><label>Mujer</label>
+          /><label> Mujer</label>
 		  </label><br>
 
         <br /><br />
@@ -160,7 +118,7 @@ document.registro.Educacion_superior.checked=false;
         <input
           type="number"
           id="tel"
-          placeholder="Ejemplo: 999-999-9999"
+          placeholder="Ejem.: 999-999-9999"
           min="1"
           name="8. Numero telefónico"
           required/>  
@@ -170,14 +128,12 @@ document.registro.Educacion_superior.checked=false;
 		
         <label for="direccion"><strong>9. Escriba su dirección</strong></label> 
         <br><br>
-		
-		
-		
-        <input type="text" id="direccion" name="Dirección" required />
+        <textarea name="Dirección" id="direccion" cols="30" rows="10" required></textarea>
         <br><br>
 		
 		
 		
+        
         <label for="postal"><strong>10. Escriba su código postal</strong></label> 
         <br />
 		
@@ -235,8 +191,9 @@ document.registro.Educacion_superior.checked=false;
           <br />
             
 			<label>
-			<label>Sí</label>
+			
 			<input type="radio" name="12. Estudios" value="sí" Onclick="Enable();" required />
+      <label> Sí</label>
 			</label>
 
 			<label>
@@ -315,5 +272,6 @@ document.registro.Educacion_superior.checked=false;
         <button type="submit">Enviar</button>
       </p>
     </form>
+  </div>
   </body>
 </html>
